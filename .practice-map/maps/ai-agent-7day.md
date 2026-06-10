@@ -11,7 +11,7 @@ frameworks:
   - langgraph
   - pydantic-ai
 created_at: 2026-06-05
-updated_at: 2026-06-06
+updated_at: 2026-06-07
 ---
 
 # AI Agent 7-Day Practice Plan
@@ -23,6 +23,28 @@ Build 7 small projects to learn core Agent skills. Compare 3 frameworks (OpenAI 
 ## Why
 
 Agent frameworks change fast. The fundamentals don't. By building each project by hand first, then re-implementing in frameworks, you learn what the framework adds — and when it gets in the way.
+
+## Learner Profile
+
+- Python 新手，AI Agent 新手
+- 前 7 天重点：跑通流程 + 理解概念
+
+## Teaching Style
+
+每个 Day 提供：
+1. **两个版本的代码**
+   - `main.py` — 简洁版，无注释，方便阅读整体逻辑
+   - `main_annotated.py` — 详细注释版，逐行解释每一句代码的含义
+2. **知识点整理** — 每个 Day 涉及的 Python / API / Agent 概念，单独整理成文档
+3. **手写练习** — 基于当天知识点的小练习，自己动手巩固
+
+## Environment
+
+Use `uv` for all Python environment and package management:
+- Create project: `uv init`
+- Add dependency: `uv add <package>`
+- Run script: `uv run main.py`
+- Install globally (if needed): `uv tool install <package>`
 
 ## LLM Provider
 
@@ -50,11 +72,12 @@ Day 1: CLI Chatbot — hand-written, no framework. Get OpenRouter API working, b
 ## Exercises
 
 ### Day 1: CLI Chatbot (Hand-Written)
+**Project dir:** `ai-agent/day1-cli-chatbot`
 
 **Goal:** Understand that an Agent is just `LLM + instructions + tools + loop`.
 
 **Task:**
-1. Install `openai` SDK (`pip install openai`)
+1. Init project: `uv init` → add dependency: `uv add openai`
 2. Get API key from OpenRouter (https://openrouter.ai/keys)
 3. Build a CLI chatbot that:
    - Reads user input in a loop
@@ -65,6 +88,7 @@ Day 1: CLI Chatbot — hand-written, no framework. Get OpenRouter API working, b
 
 **What good looks like:**
 - `main.py` under 80 lines
+- Run with `uv run main.py`
 - Conversation history persists across turns in the same session
 - Clean exit on `quit` or `Ctrl+C`
 
@@ -97,6 +121,7 @@ while True:
 ---
 
 ### Day 2: Tool Agent (Hand-Written → OpenAI Agents SDK)
+**Project dir:** `ai-agent/day2-tool-agent`
 
 **Goal:** Understand function calling — the model decides WHEN to call a tool.
 
@@ -121,6 +146,7 @@ def search_notes(keyword: str) -> str:
 ---
 
 ### Day 3: RAG File Q&A (Hand-Written → LangGraph)
+**Project dir:** `ai-agent/day3-rag-file-qa`
 
 **Goal:** Learn chunking, embedding, vector search, context injection.
 
@@ -141,6 +167,7 @@ def search_notes(keyword: str) -> str:
 ---
 
 ### Day 4: Web Research Agent (LangGraph vs Pydantic AI)
+**Project dir:** `ai-agent/day4-web-research`
 
 **Goal:** Multi-step planning — plan → search → read → summarize.
 
@@ -152,6 +179,7 @@ def search_notes(keyword: str) -> str:
 ---
 
 ### Day 5: Bug Fix Agent (OpenAI Agents SDK)
+**Project dir:** `ai-agent/day5-bug-fix`
 
 **Goal:** Execute-observe-fix loop — the Agent runs code, sees output, corrects itself.
 
@@ -163,6 +191,7 @@ def search_notes(keyword: str) -> str:
 ---
 
 ### Day 6: Multi-Agent Team (LangGraph)
+**Project dir:** `ai-agent/day6-multi-agent`
 
 **Goal:** Role separation + passing intermediate results.
 
@@ -175,6 +204,7 @@ def search_notes(keyword: str) -> str:
 ---
 
 ### Day 7: FastAPI Agent Service (Deployment)
+**Project dir:** `ai-agent/day7-fastapi-service`
 
 **Goal:** Wrap an Agent as an API with logging, error handling, auth.
 
@@ -186,6 +216,14 @@ def search_notes(keyword: str) -> str:
 ---
 
 ## Session Log
+
+### 2026-06-07 — 学习风格更新 & 环境配置
+- 确认学习者为 Python / AI Agent 新手
+- 前 7 天目标：跑通流程 + 理解概念
+- 每个 Day 产出：简洁版代码 + 详细注释版代码 + 知识点文档 + 手写练习
+- Python 环境管理统一使用 `uv`
+- 为每个 Day 创建独立项目目录 `ai-agent/dayN-xxx`，确保练习项目互相隔离
+- API Key 改用 `.env` 文件管理，代码通过 `os.getenv()` 读取
 
 ### 2026-06-06 — LLM Provider Changed to OpenRouter
 - Changed LLM provider from Google AI Studio to OpenRouter
@@ -205,4 +243,4 @@ def search_notes(keyword: str) -> str:
 
 ## Next Step
 
-Day 1, Step 1: Install `openai` SDK (`pip install openai`), get OpenRouter API key, pick a free model, run a single API call to confirm it works.
+Day 1: 把你的 OpenRouter API key 填入 `ai-agent/day1-cli-chatbot/main.py`，运行 `uv run main.py` 测试 chatbot，然后阅读 `main_annotated.py` 和 `knowledge.md`，最后尝试完成 `exercise.py` 里的 TODO。
