@@ -62,12 +62,12 @@ Pick a free or cheap model to start (e.g., `meta-llama/llama-3.1-8b-instruct`, `
 | 3 | File Q&A (RAG) | Embedding, vector search, context injection | Hand-written → LangGraph | done |
 | 4 | Web Research Agent | Multi-step planning | LangGraph vs Pydantic AI | done |
 | 5 | Bug Fix Agent | Execute-observe-fix loop | OpenAI Agents SDK | done |
-| 6 | Multi-Agent Writing Team | Agent collaboration | LangGraph | planned |
+| 6 | Multi-Agent Writing Team | Agent collaboration | LangGraph | done |
 | 7 | FastAPI Agent Service | Deployment, logging, API | Any framework | planned |
 
 ## Current Focus
 
-Day 6: Multi-Agent Writing Team — agent collaboration.
+Day 7: FastAPI Agent Service — deployment, logging, API.
 
 ## Exercises
 
@@ -217,6 +217,10 @@ def search_notes(keyword: str) -> str:
 
 ## Session Log
 
+### 2026-06-10 — Day 6 完成
+- Multi-Agent Writing Team 手写版完成
+- 理解了多 Agent 协作：角色分工 + 信息传递
+
 ### 2026-06-09 — Day 5 完成
 - Bug Fix Agent 手写版完成
 - 理解了 Execute-Observe-Fix 循环：执行 → 观察 → 修复
@@ -264,4 +268,4 @@ def search_notes(keyword: str) -> str:
 
 ## Next Step
 
-Day 6: `cd ai-agent/day6-multi-agent` → `uv init` → `uv add openai python-dotenv`，阅读 `main.py` 理解多 Agent 协作，然后尝试 `main_annotated.py` 和 `exercise.py`。
+Day 7: `cd ai-agent/day7-fastapi-service` → `uv init` → `uv add openai python-dotenv fastapi uvicorn`，阅读 `main.py` 理解 API 部署，然后尝试 `main_annotated.py` 和 `exercise.py`。
