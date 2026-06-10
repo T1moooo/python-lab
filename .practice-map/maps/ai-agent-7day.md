@@ -57,17 +57,17 @@ Pick a free or cheap model to start (e.g., `meta-llama/llama-3.1-8b-instruct`, `
 
 | # | Project | Core Skill | Framework Focus | Status |
 |---|---------|-----------|----------------|--------|
-| 1 | CLI Chatbot | LLM calls, conversation history | Hand-written (no framework) | planned |
-| 2 | Tool Agent | Tool/function calling | Hand-written → OpenAI Agents SDK | planned |
-| 3 | File Q&A (RAG) | Embedding, vector search, context injection | Hand-written → LangGraph | planned |
-| 4 | Web Research Agent | Multi-step planning | LangGraph vs Pydantic AI | planned |
-| 5 | Bug Fix Agent | Execute-observe-fix loop | OpenAI Agents SDK | planned |
+| 1 | CLI Chatbot | LLM calls, conversation history | Hand-written (no framework) | done |
+| 2 | Tool Agent | Tool/function calling | Hand-written → OpenAI Agents SDK | done |
+| 3 | File Q&A (RAG) | Embedding, vector search, context injection | Hand-written → LangGraph | done |
+| 4 | Web Research Agent | Multi-step planning | LangGraph vs Pydantic AI | done |
+| 5 | Bug Fix Agent | Execute-observe-fix loop | OpenAI Agents SDK | done |
 | 6 | Multi-Agent Writing Team | Agent collaboration | LangGraph | planned |
 | 7 | FastAPI Agent Service | Deployment, logging, API | Any framework | planned |
 
 ## Current Focus
 
-Day 1: CLI Chatbot — hand-written, no framework. Get OpenRouter API working, build a simple chat loop.
+Day 6: Multi-Agent Writing Team — agent collaboration.
 
 ## Exercises
 
@@ -217,6 +217,27 @@ def search_notes(keyword: str) -> str:
 
 ## Session Log
 
+### 2026-06-09 — Day 5 完成
+- Bug Fix Agent 手写版完成
+- 理解了 Execute-Observe-Fix 循环：执行 → 观察 → 修复
+
+### 2026-06-08 — Day 4 完成
+- Web Research Agent 手写版完成
+- 理解了多步规划流程：规划 → 执行 → 综合
+
+### 2026-06-07 — Day 3 完成
+- RAG File Q&A 手写版完成
+- 理解了 RAG 流程：分块 → 向量化 → 检索 → 注入 prompt
+
+### 2026-06-07 — Day 2 完成
+- Tool Agent 手写版完成
+- 理解了 function calling 流程：AI 请求 → 执行工具 → 返回结果
+
+### 2026-06-07 — Day 1 完成
+- CLI Chatbot 手写版完成
+- 使用 .env 管理 API key
+- 模型: openai/gpt-oss-120b:free
+
 ### 2026-06-07 — 学习风格更新 & 环境配置
 - 确认学习者为 Python / AI Agent 新手
 - 前 7 天目标：跑通流程 + 理解概念
@@ -243,4 +264,4 @@ def search_notes(keyword: str) -> str:
 
 ## Next Step
 
-Day 1: 把你的 OpenRouter API key 填入 `ai-agent/day1-cli-chatbot/main.py`，运行 `uv run main.py` 测试 chatbot，然后阅读 `main_annotated.py` 和 `knowledge.md`，最后尝试完成 `exercise.py` 里的 TODO。
+Day 6: `cd ai-agent/day6-multi-agent` → `uv init` → `uv add openai python-dotenv`，阅读 `main.py` 理解多 Agent 协作，然后尝试 `main_annotated.py` 和 `exercise.py`。

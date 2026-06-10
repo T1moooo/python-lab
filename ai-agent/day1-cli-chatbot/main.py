@@ -9,7 +9,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
-MODEL = "google/gemini-2.0-flash-exp:free"
+MODEL = "openai/gpt-oss-120b:free"
 
 history = [
     {"role": "system", "content": "You are a helpful Python tutor."}

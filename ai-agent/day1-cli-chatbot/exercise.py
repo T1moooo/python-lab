@@ -33,7 +33,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
-MODEL = "google/gemini-2.0-flash-exp:free"
+MODEL = "openai/gpt-oss-120b:free"
 
 history = [
     {"role": "system", "content": "You are a helpful Python tutor."}
@@ -62,13 +62,26 @@ def summarize_history(messages):
     #   - 返回 AI 的回复文本
 
     summary_messages = [
+        {
+            "role":"system",
+            "content":"Summarize the following conversation in 2-3 sentences."
+        },
+        {
+            "role":"user",
+            "content":str(messages)
+        }
         # TODO: 补全这里
     ]
 
     # TODO: 调用 API 获取总结
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=summary_messages,
+    )
 
     # TODO: 返回总结文本
-    pass
+    return response.choices[0].message.content
+
 
 
 while True:
@@ -91,6 +104,16 @@ while True:
     #   - 切片语法：history[0] 取第一条，history[1:5] 取第 2~5 条
 
     # TODO: 补全这里
+    non_system_count = len(history) - 1
+    if non_system_count > 6:
+        summary = summarize_history(history)
+        history = [
+            history[0],
+            {
+                "role": "user",
+                "content":f"以下是之前对话的总结，请基于此继续对话：\n{summary}"
+            }
+        ]
 
     response = client.chat.completions.create(
         model=MODEL,

@@ -81,9 +81,9 @@ client = OpenAI(
 # MODEL 是我们约定的常量名（全大写是 Python 的命名惯例，表示"这个值不应该被修改"）
 # 这个字符串告诉 OpenRouter 我们想用哪个 AI 模型
 #
-# "google/gemini-2.0-flash-exp:free" 是 OpenRouter 上的一个免费模型
+# "openai/gpt-oss-120b:free" 是 OpenRouter 上的一个免费模型
 # 格式是 "提供商/模型名"
-MODEL = "google/gemini-2.0-flash-exp:free"
+MODEL = "openai/gpt-oss-120b:free"
 
 
 # ------------------------------------------------------------
